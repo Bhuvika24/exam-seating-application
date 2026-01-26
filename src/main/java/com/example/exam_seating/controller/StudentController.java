@@ -1,56 +1,33 @@
 package com.example.exam_seating.controller;
 
-import java.util.List;
-import java.util.Map;
-import org.springframework.web.bind.annotation.*;
 import com.example.exam_seating.entity.Student;
 import com.example.exam_seating.service.StudentService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/students")
-@CrossOrigin
 public class StudentController {
 
-    private final StudentService studentService;
+    private final StudentService service;
 
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
+    public StudentController(StudentService service) {
+        this.service = service;
     }
 
-    // ✅ Add student
     @PostMapping
-    public Student addStudent(@RequestBody Student student) {
-        return studentService.allocateSeat(student);
+    public Student add(@RequestBody Student s) {
+        return service.addStudent(s);
     }
 
-    // ✅ Bulk add
-    @PostMapping("/bulk")
-    public List<Student> addBulk(@RequestBody List<Student> students) {
-        return studentService.allocateSeatsBulk(students);
-    }
-
-    // ✅ Get all students
     @GetMapping
-    public List<Student> getAllStudents() {
-        return studentService.getAllStudents();
+    public List<Student> all() {
+        return service.getAll();
     }
 
-    // ✅ Update
-    @PutMapping("/{id}")
-    public Student updateStudent(@PathVariable Long id,
-                                 @RequestBody Student student) {
-        return studentService.updateStudent(id, student);
-    }
-
-    // ✅ Delete
-    @DeleteMapping("/{id}")
-    public void deleteStudent(@PathVariable Long id) {
-        studentService.deleteStudent(id);
-    }
-
-    // ✅ Seating arrangement
-    @GetMapping("/seating-arrangement")
-    public Map<String, List<Student>> seatingArrangement() {
-        return studentService.getSeatingArrangement();
+    @PostMapping("/reset")
+    public void reset() {
+        service.resetSeating();
     }
 }
