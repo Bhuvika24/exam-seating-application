@@ -208,17 +208,7 @@ Bhoovika
 Final Year CSE
 Spring Boot | Backend Development
 
-⭐ GitHub
-If you like this project, give it a ⭐
 
-yaml
-Copy code
-
----
-
-# 🧠 After updating README → push it
-
-```bash
 git add README.md
 git commit -m "Update README with project documentation"
 git push origin main
