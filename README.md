@@ -203,10 +203,7 @@ Frontend UI (React / Angular)
 
 Deployment on Render / AWS
 
-👩‍💻 Author
-Bhoovika
-Final Year CSE
-Spring Boot | Backend Development
+
 
 
 git add README.md
